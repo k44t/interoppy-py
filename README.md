@@ -6,6 +6,8 @@ The basic usage of interoppy is to start it as a subprocess from some other prog
 {"my.module.my-function": ["argument 1", "argument 2", Three]}
 ```
 
+Please note that linebreak characters are not allowed in the json source, so don't use a pretty printer when sending json to interoppy.
+
 Or, if you have named arguments, you can pass the unnamed arguments under the key `_`:
 
 
@@ -45,3 +47,13 @@ And then on the client side, you need to tell interoppy to call that init functi
 
 Interoppy only consists of less than 300 lines of code. For anything else (such as using the Handler directly) simply consult the source code.
 
+
+
+To test what interoppy will do, you can also start interoppy manually and then manually send json objects to it:
+
+```
+python -m interoppy
+{"succes":"started interoppy server"}
+{"my.module.my_function":[]}
+"whatever my_function returned"
+```

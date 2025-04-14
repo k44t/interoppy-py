@@ -124,21 +124,21 @@ class Handler:
                             raise ValueError("encoder is neither callable nor a class that can be used by the json module")
                     else:
                         r = json.dumps(r)
-                    outs.write(f"{{success:{r}}}")
+                    outs.write(f'{{"success":{r}}}')
                     outs.write("\n")
                 except BaseException as ex:
-                    outs.write(json.dumps({"error": f"{ex}"}))
+                    outs.write(json.dumps({'"error"': f"{ex}"}))
                     outs.write("\n")
                 # buffer = buffer[index:].lstrip()    # Remove the parsed object from the buffer
             except json.JSONDecodeError as ex:
                 # Check if the error is due to incomplete data                    
                 # if "Expecting value" in str(ex) or "Unterminated string" in str(ex):
-                outs.write(json.dumps({"error": f"{ex}"}))
+                outs.write(json.dumps({'"error"': f"{ex}"}))
                 outs.write("\n")
 
 
 def main():
-    print('''{success:"started interoppy server"}''')
+    print('''{"success":"started interoppy server"}''')
     Handler().listen(sys.stdin, sys.stdout)
 
 if __name__ == "__main__":
