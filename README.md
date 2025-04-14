@@ -53,7 +53,8 @@ To test what interoppy will do, you can also start interoppy manually and then m
 
 ```
 python -m interoppy
-{"succes":"started interoppy server"}
 {"my.module.my_function":[]}
 "whatever my_function returned"
+{"interoppy.stop:[]}
+{"success":null}
 ```

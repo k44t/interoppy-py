@@ -138,7 +138,7 @@ class Handler:
 
 
 def main():
-    print('''{"success":"started interoppy server"}''')
+    # print('''{"success":"started interoppy server"}''')
     Handler().listen(sys.stdin, sys.stdout)
 
 if __name__ == "__main__":
